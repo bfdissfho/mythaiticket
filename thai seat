@@ -7,8 +7,8 @@
 // @match        https://booking.thaiticketmajor.com/booking/3m/fixed.php?*
 // @match        https://booking.thaiticketmajor.com/booking/3m/festival.php?*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=thaiticketmajor.com
-// @downloadURL  https://raw.githubusercontent.com/bfdissfho/mygolive/refs/heads/main/go_live_seat
-// @updateURL    https://raw.githubusercontent.com/bfdissfho/mygolive/refs/heads/main/go_live_seat
+// @downloadURL  https://raw.githubusercontent.com/bfdissfho/mythaiticket/refs/heads/main/thai%20seat
+// @updateURL    https://raw.githubusercontent.com/bfdissfho/mythaiticket/refs/heads/main/thai%20seat
 // @grant        none
 // ==/UserScript==
 
