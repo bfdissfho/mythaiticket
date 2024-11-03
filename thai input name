@@ -5,6 +5,8 @@
 // @description  try to take over the world!
 // @author       You
 // @match        https://booking.thaiticketmajor.com/booking/3m/enroll_fixed.php*
+// @updateURL    https://raw.githubusercontent.com/bfdissfho/mythaiticket/refs/heads/main/thai%20input%20name
+// @downloadURL  https://raw.githubusercontent.com/bfdissfho/mythaiticket/refs/heads/main/thai%20input%20name
 // @grant        none
 // ==/UserScript==
 
