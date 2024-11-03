@@ -1,0 +1,31 @@
+// ==UserScript==
+// @name         thai verify condition
+// @namespace    http://tampermonkey.net/
+// @version      2024-01-21
+// @description  try to take over the world!
+// @author       You
+// @match        https://booking.thaiticketmajor.com/booking/3m/verify_condition.php*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=thaiticketmajor.com
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    function agree(){
+    var element = document.querySelector('.label-txt');
+
+        // Trigger a click event on the element
+        element.click();
+    }
+
+        function clickBuyTicketButton() {
+        var button = document.getElementById('btn_verify');
+        if (button) {
+            button.click();
+        }
+    }
+
+    // Call the function to click the "Buy Ticket" button
+    setTimeout(clickBuyTicketButton, 2000)
+    setTimeout(agree, 1000)
+})();
