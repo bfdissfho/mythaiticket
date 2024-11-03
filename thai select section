@@ -1,0 +1,89 @@
+// ==UserScript==
+// @name         thai select section
+// @namespace    http://tampermonkey.net/
+// @version      2024-01-21
+// @description  try to take over the world!
+// @author       You
+// @match        https://booking.thaiticketmajor.com/booking/3m/zones.php?query=*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=thaiticketmajor.com
+// @grant        none
+// ==/UserScript==
+
+
+(function() {
+    'use strict';
+
+
+    function click_section(id){
+        // Find the target element by href
+        console.log(id)
+        var section = document.querySelector('area[href="#fixed.php#' + id + '"]');
+        console.log(section)
+        // Check if any matching elements exist
+        if (section) {
+            section.click()
+
+        }
+    }
+
+
+
+    function clickSeatsAvailableButton() {
+        var button = document.querySelector('button.btn.fancybox#popup-avail');
+        if (button) {
+            button.click();
+        }
+    }
+
+    function extractIDfromTxtGreen() {
+        var close = document.querySelector('a[title="Close"].fancybox-item.fancybox-close');
+        let zone_element = document.querySelectorAll("tbody")[0]
+        var trElements = zone_element.querySelectorAll('tr');
+
+
+
+        let want_section = ["104","205A"]
+        let minimum_seat = 20
+
+
+
+        // Iterate over the <tr> elements
+        for (var j = 0; j < want_section.length; j++){
+            let want_section2 = want_section[j];
+            for (var i = 0; i < trElements.length; i++) {
+                var trElement = trElements[i];
+                var secondTdElement = trElement.querySelector('td:nth-child(2)');
+                var aElement = secondTdElement.querySelector('a');
+
+                var className = aElement.className;
+                var text = parseInt(aElement.textContent.trim());
+
+                if (className.includes('txt-green') && text > minimum_seat ) {
+                    var firstTdElement = trElement.querySelector('td:first-child');
+                    var id = firstTdElement.querySelector('a').getAttribute('id');
+                    if (id === want_section2){
+                        console.log("ID:", id);
+                        close.click();
+                        setTimeout(click_section, 2000, id);
+                        break
+                    }
+                    // Do whatever you want with the ID here
+                }
+            }
+        }
+    }
+    // Call the function to click the "Seats Available" button
+
+    setTimeout(clickSeatsAvailableButton, 2000)
+    setTimeout(extractIDfromTxtGreen, 4000)
+
+
+
+
+    // floor section:
+    //var selectbox = document.getElementById('book_cnt');
+    // selectbox.value = '6';
+
+
+
+})();
