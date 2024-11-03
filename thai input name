@@ -1,0 +1,62 @@
+// ==UserScript==
+// @name         thai input name
+// @namespace    http://tampermonkey.net/
+// @version      2024-01-22
+// @description  try to take over the world!
+// @author       You
+// @match        https://booking.thaiticketmajor.com/booking/3m/enroll_fixed.php*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Function to input a value into the first name field
+    function inputFirstName() {
+        let input = document.getElementById('txt_firstname_0');
+        if (input) {
+            input.value = "John";
+        }
+
+        let input2 = document.getElementById('txt_firstname_1');
+        if (input2) {
+            input2.value = "mary";
+        }
+
+
+            let input3 = document.getElementById('txt_firstname_2');
+        if (input3) {
+            input3.value = "mary2";
+        }
+
+
+            let input4 = document.getElementById('txt_firstname_3');
+        if (input4) {
+            input4.value = "mary3";
+        }
+
+
+            let input5 = document.getElementById('txt_firstname_4');
+        if (input5) {
+            input5.value = "mary4";
+        }
+
+
+                let input6 = document.getElementById('txt_firstname_5');
+        if (input6) {
+            input6.value = "mary5";
+        }
+
+}
+
+        function clickSave() {
+        let button = document.querySelector('input.btn-red[name="btn_regnow"]');
+        if (button) {
+            button.click();
+        }
+    }
+    // Call the function to input the first name
+    setTimeout(inputFirstName, 2000);
+    setTimeout(clickSave, 3000);
+
+})();
