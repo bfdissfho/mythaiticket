@@ -1,0 +1,67 @@
+// ==UserScript==
+// @name         thai pickup
+// @namespace    http://tampermonkey.net/
+// @version      2024-01-21
+// @description  try to take over the world!
+// @author       You
+// @match        https://booking.thaiticketmajor.com/booking/3m/paymentall*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    function pickup(){
+        var element = document.getElementById('btn_pickup');
+
+    // Check if the element exists
+    if (element) {
+        // Trigger a click event on the element
+        element.click();
+
+    }
+    }
+
+
+    function confirm(){
+        var element = document.getElementById('btn_confirm');
+
+    // Check if the element exists
+    if (element) {
+        // Trigger a click event on the element
+        element.click();
+    }
+    }
+
+
+        function agree(){
+    var elements = document.getElementsByClassName('label-txt');
+
+    // Iterate through the elements to find the one with the desired text content
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        if (element.textContent.trim() === 'I Agree' || element.textContent.trim() === 'ยอมรับข้อตกลงในการใช้บริการ') {
+            // Trigger a click event on the element
+            element.click();
+
+            break;
+        }
+    }
+    }
+
+    function creditcard(){
+    var creditCardButton = document.getElementById('btn_creditcard');
+
+        // Check if the button is found
+        if (creditCardButton) {
+            // Simulate a click on the button
+            creditCardButton.click();
+
+
+        }
+    }
+    setTimeout(agree, 4000)
+    setTimeout(creditcard, 3000)
+    setTimeout(pickup, 2000)
+    setTimeout(confirm, 300000)
+    
+})();
